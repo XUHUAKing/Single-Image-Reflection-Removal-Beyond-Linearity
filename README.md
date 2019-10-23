@@ -4,11 +4,11 @@
 
 Qiang Wen, Yinjie Tan, Jing Qin, Wenxi Liu, Guoqiang Han, and Shengfeng He*
 ## Requirement
-- Python 3.5
-- PIL
+- Python 3.5 ```conda create -n qf python=3.5```
+- PIL ```pip install Pillow```
 - OpenCV-Python
 - Numpy
-- Pytorch 0.4.0
+- Pytorch 0.4.0 ```conda install -c pytorch pytorch==0.4.0 && pip install torchvision==0.2.2```
 - Ubuntu 16.04 LTS
 ## Reflection Synthesis
 ``` bash
