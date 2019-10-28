@@ -1,1 +1,0 @@
-python3 ./test.py --dataroot ./testing_set_for_removal/focused --which_type focused --which_epoch 130 --how_many 30 --results_dir ./results --phase test --checkpoints_dir ./checkpoints_removal --gpu_ids -1

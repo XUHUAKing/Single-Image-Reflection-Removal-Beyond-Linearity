@@ -76,7 +76,7 @@ class RemovalDataset(BaseDataset):
             A_img = Image.open(A_path).convert('RGB')
             B_img = Image.open(B_path).convert('RGB')
             W_np = np.load(W_path)
-        
+
         C = self.get_transforms_2(C_img)
         if self.opt.phase == 'train':
             A = self.get_transforms_2(A_img)

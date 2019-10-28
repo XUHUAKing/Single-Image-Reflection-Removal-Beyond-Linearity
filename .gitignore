@@ -1,0 +1,8 @@
+Removal/checkpoints_removal/
+Removal/data/__pycache__/
+Removal/options/__pycache__/
+Removal/util/__pycache__/
+Removal/testing_set_for_removal/defocused
+Removal/testing_set_for_removal/focused
+Removal/testing_set_for_removal/ghosting
+results/

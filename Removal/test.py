@@ -1,3 +1,11 @@
+'''
+To test Beyond Linearity script with own data:
+steps: (if you treat own data as "focused")
+    1. put .png images into testing_set_for_removal/focused/testC/ --> datadir
+    2. bash ./removal_test_focused --> remember to set --which_type focused && --how_many 44 &&  --dataroot
+    3. results will be put in results/focused/test_130
+    4. follow steps in reflectSuppress to evaluate
+'''
 import os
 from options.test_options import TestOptions
 from data.custom_dataset_data_loader import CreateDataLoader
@@ -16,6 +24,7 @@ data_loader = CreateDataLoader(opt)
 dataset = data_loader.load_data()
 model = ReflectionRemovalModel()
 model.initialize(opt)
+
 # test
 for i, data in enumerate(dataset):
     if i >= opt.how_many:
@@ -33,4 +42,8 @@ for i, data in enumerate(dataset):
     for label, image_numpy in model.get_current_visuals_test().items():
         image_name = '%s_%s.png' % (name, label)
         save_path = os.path.join(img_dir, image_name)
-        util.save_image(image_numpy, save_path)
+        if 'fake_transmission' in label:
+            # remove "fake_transmission"
+            new_path = save_path.replace('_fake_transmission','')
+            util.save_16bit_image(image_numpy, new_path)
+        # util.save_image(image_numpy, save_path)

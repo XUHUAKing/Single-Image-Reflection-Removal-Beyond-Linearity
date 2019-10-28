@@ -3,6 +3,7 @@ import torch
 import numpy as np
 from PIL import Image
 import os
+import cv2
 
 
 # Converts a Tensor into a Numpy array
@@ -27,6 +28,10 @@ def diagnose_network(net, name='network'):
     print(name)
     print(mean)
 
+def save_16bit_image(image_numpy, image_path):
+    # convert to gray
+    image_grey = cv2.cvtColor((image_numpy * 255.).clip(0, 65535).astype(np.float32), cv2.COLOR_BGR2GRAY)
+    cv2.imwrite(image_path, image_grey.astype(np.uint16))
 
 def save_image(image_numpy, image_path):
     image_pil = Image.fromarray(image_numpy)
